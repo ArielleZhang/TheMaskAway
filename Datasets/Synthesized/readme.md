@@ -1,6 +1,6 @@
 ### Synthesized Masked Data ###
 
-Ok I give up, the dataset it to big to upload. 
+I gave up lol, the dataset it too big to upload. 
 
 This dir contains the original dataset found at: https://www.kaggle.com/datasets/varump66/face-images-13233
 Every person has multiple photos but with roughly same posture and angle.
