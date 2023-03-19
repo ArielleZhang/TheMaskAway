@@ -1,6 +1,10 @@
 ### Synthesized Masked Data ###
-This dir contains teh original dataset found at: https://www.kaggle.com/datasets/varump66/face-images-13233, and three synthesized datasets with N95, black inpaint, and plain inpaint. Every person has multiple photos but with roughly same posture and angle.
 
-All photos are resized to 256 by 256, the ratio is changed a bit but I dont think it will affect the overall quality, ```/lanczos``` contains the better quality photos, ```/resized``` contains the meh ones, but the photos in these two dirs are the same.
+Ok I give up, the dataset it to big to upload. 
 
-Remember to unzip when you download to local cuz files are too large it I dont zip.
+This dir contains the original dataset found at: https://www.kaggle.com/datasets/varump66/face-images-13233
+Every person has multiple photos but with roughly same posture and angle.
+
+Follow the MaskTheFace repo instruction to add masks: REMEMBER TO USE PYTHON3.6 FOR THE VENV!!! To make black inpainting, you can change the default ```--color``` to be ```#010101``` which is black, and choose ```cloth``` for ```--mask_type```.
+
+Use the resize.py to resize all the photos. Default is 256 by 256. Remember to specify your input dir for ```--path```. ```/lanczos``` contains the better quality photos, ```/resized``` contains the meh ones, but the photos in these two dirs are the same.
