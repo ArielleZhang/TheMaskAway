@@ -19,11 +19,11 @@ to be added later
 #### TFill ####
 To train on Nvidia RTX3060 GPU, we had to modify their ```environment.yaml``` file to make the ```cudatoolkit``` version match with the Nvidia dirver, as well as some of the configurations in ```base_options.py```. We also modified the ```data_loader.py``` to train on our own mask instead of their generated mask. We trainined/are still trainig three models now.
 
-_Model 1_: ```M1_faces_from_scratch``` on the Faces Kaggle dataset, training model from scratch.\\
+_Model 1_: ```M1_faces_from_scratch``` on the Faces Kaggle dataset, training model from scratch.\
 
-_Model 2_: ```M2_FFHQ_from_scratch``` on FFHQ with our own masks, training model from scratch.\\
+_Model 2_: ```M2_FFHQ_from_scratch``` on FFHQ with our own masks, training model from scratch.\
 
-_Model 3_: ```M3_FFHQ_pretrained``` on FFHQ with our own masks, training model on top of their pretrained ffhq model which is trained on ffhq512 for 20000000 iterations.\\
+_Model 3_: ```M3_FFHQ_pretrained``` on FFHQ with our own masks, training model on top of their pretrained ffhq model which is trained on ffhq512 for 20000000 iterations.\
 !!!!!!!NOTICE: MODEL3 IS STILL NOT DONE YET, WILL UPDATE TMR!!!!!!!
 
 Saved models and training outcomes are in the checkpoints folder, testing results in the testing folder.
