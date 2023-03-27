@@ -43,7 +43,7 @@ n_decoders: 0
 n_encoders: 12
 n_layers_D: 3
 n_layers_G: 4
-name: ffhq
+name: M3_FFHQ_pretrained
 ndf: 32
 netD: style
 netE: diff

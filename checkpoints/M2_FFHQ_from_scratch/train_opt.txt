@@ -28,7 +28,7 @@ fine_size: 256
 fixed_size: 256
 gan_mode: nonsaturating
 gpu_ids: 0
-img_file: E:/1-EngSci3/1-ECE324/Triple-Dots/Synthesized/FFHQ_512
+img_file: E:/1-EngSci3/1-ECE324/Triple-Dots/Datasets/FFHQ512_10k
 img_nc: 3
 init_gain: 0.02
 init_type: kaiming
@@ -45,7 +45,7 @@ lipip_path: ./model/lpips/vgg.pth
 load_size: 257
 lr: 0.0001
 lr_policy: linear
-mask_file: E:/1-EngSci3/1-ECE324/Triple-Dots/Synthesized/mask_FFHQ
+mask_file: E:/1-EngSci3/1-ECE324/Triple-Dots/Datasets/FFHQ512_10k_masks
 mask_type: 3
 mid_layers: 6
 model: tc
@@ -56,7 +56,7 @@ n_iter: 2000000
 n_iter_decay: 0
 n_layers_D: 3
 n_layers_G: 4
-name: MaskAway_styleD_FFHQ
+name: M2_FFHQ_from_scratch
 ndf: 32
 netD: style
 netE: diff

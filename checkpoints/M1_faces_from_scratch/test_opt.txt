@@ -23,7 +23,7 @@ eval: False
 fine_size: 512
 fixed_size: 256
 gpu_ids: 0
-how_many: 2
+how_many: inf
 img_file: ./examples/test/img/
 img_nc: 3
 init_gain: 0.02
@@ -43,7 +43,7 @@ n_decoders: 0
 n_encoders: 12
 n_layers_D: 3
 n_layers_G: 4
-name: MaskAway_styleD
+name: M1_faces_from_scratch
 ndf: 32
 netD: style
 netE: diff
@@ -57,7 +57,7 @@ nsampling: 1
 num_embeds: 1024
 num_res_blocks: 2
 phase: test
-preprocess: resize
+preprocess: scale_shortside
 results_dir: ./results
 reverse_mask: False
 top_k: 10
