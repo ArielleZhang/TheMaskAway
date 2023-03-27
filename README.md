@@ -13,8 +13,6 @@ We preprocessed three different datasets:
 1. Faces Kaggle dataset: https://www.kaggle.com/datasets/varump66/face-images-13233, with 256 by 256 resolution but only the last 8k examples (roughly).
 2. FFHQ Kaggle dataset: https://www.kaggle.com/datasets/arnaud58/flickrfaceshq-dataset-ffhq, with 512 by 512 resolution but only the first 10k examples (roughly).
 3. A small personalized dataset containing 100 images (roughly) of Arielle.
-4. And a small test dataset for quick test purposes, only 5 images.
-Notice that every dataset contains original images and the corresponding masks.
 
 ### Training Models ###
 
