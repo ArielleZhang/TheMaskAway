@@ -37,5 +37,5 @@ Saved training outcomes are in the checkpoints folder, saved training models can
 ### Future Steps ###
 Once we get the models and testing results, these parts will be added to the Training Models Section.
 
-Fine tune for the user (more customized), pick a best pretrained model then train and fine tune it using user input datasets (ex. Taylor Swift 100 datasets) to make sure the face generated looks similar to the person.
+Fine tune for the user (more customized), pick a best pretrained model then train and fine tune it using user input datasets (ex. Arielle 100 datasets) to make sure the face generated looks similar to the person.
 
