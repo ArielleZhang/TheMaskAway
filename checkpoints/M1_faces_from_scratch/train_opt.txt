@@ -56,7 +56,7 @@ n_iter: 2000000
 n_iter_decay: 0
 n_layers_D: 3
 n_layers_G: 4
-name: MaskAway_styleD
+name: M1_faces_from_scratch
 ndf: 32
 netD: style
 netE: diff
