@@ -20,11 +20,11 @@ embed_dim: 512
 embed_type: learned
 epoch: latest
 eval: False
-fine_size: 512
+fine_size: 256
 fixed_size: 256
 gpu_ids: 0
 how_many: inf
-img_file: ./examples/test/img/
+img_file: ../Datasets/faces/validation/img_masked
 img_nc: 3
 init_gain: 0.02
 init_type: kaiming
@@ -33,8 +33,8 @@ kernel_E: 1
 kernel_G: 3
 kernel_T: 1
 lipip_path: ./model/lpips/vgg.pth
-load_size: 512
-mask_file: ./examples/test/mask/
+load_size: 257
+mask_file: ../Datasets/faces/validation/masks
 mask_type: 3
 mid_layers: 6
 model: tc
@@ -57,7 +57,7 @@ nsampling: 1
 num_embeds: 1024
 num_res_blocks: 2
 phase: test
-preprocess: scale_shortside
+preprocess: resize
 results_dir: ./results
 reverse_mask: False
 top_k: 10

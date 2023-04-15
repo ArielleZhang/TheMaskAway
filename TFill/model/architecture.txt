@@ -1,0 +1,1095 @@
+---------- Networks initialized -------------DiffEncoder(
+  (encode): PartialConv2d(3, 32, kernel_size=(1, 1), stride=(1, 1))
+  (down): ModuleList(
+    (0): Module(
+      (downsample): DownSample(
+        (conv): PartialConv2d(32, 32, kernel_size=(2, 2), stride=(2, 2))
+      )
+      (block): ModuleList(
+        (0): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(32, 64, kernel_size=(1, 1), stride=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): PartialConv2d(32, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): Identity()
+        )
+      )
+    )
+    (1): Module(
+      (downsample): DownSample(
+        (conv): PartialConv2d(64, 64, kernel_size=(2, 2), stride=(2, 2))
+      )
+      (block): ModuleList(
+        (0): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(64, 128, kernel_size=(1, 1), stride=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(128, 128, kernel_size=(1, 1), stride=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): PartialConv2d(64, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(128, 128, kernel_size=(1, 1), stride=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(128, 128, kernel_size=(1, 1), stride=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): Identity()
+        )
+      )
+    )
+    (2): Module(
+      (downsample): DownSample(
+        (conv): PartialConv2d(128, 128, kernel_size=(2, 2), stride=(2, 2))
+      )
+      (block): ModuleList(
+        (0): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(128, 256, kernel_size=(1, 1), stride=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): PartialConv2d(128, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): Identity()
+        )
+      )
+    )
+    (3): Module(
+      (downsample): DownSample(
+        (conv): PartialConv2d(256, 256, kernel_size=(2, 2), stride=(2, 2))
+      )
+      (block): ModuleList(
+        (0): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(512, 512, kernel_size=(1, 1), stride=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): PartialConv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(512, 512, kernel_size=(1, 1), stride=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(512, 512, kernel_size=(1, 1), stride=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): Identity()
+        )
+      )
+    )
+  )
+  (mid): Module(
+    (block1): ResnetBlock(
+      (norm1): PixelwiseNorm()
+      (conv1): PartialConv2d(512, 512, kernel_size=(1, 1), stride=(1, 1))
+      (norm2): PixelwiseNorm()
+      (conv2): PartialConv2d(512, 512, kernel_size=(1, 1), stride=(1, 1))
+      (dropout): Dropout(p=0.0, inplace=False)
+      (act): LeakyReLU(negative_slope=0.2)
+      (short): Identity()
+    )
+    (block2): ResnetBlock(
+      (norm1): PixelwiseNorm()
+      (conv1): PartialConv2d(512, 512, kernel_size=(1, 1), stride=(1, 1))
+      (norm2): PixelwiseNorm()
+      (conv2): PartialConv2d(512, 512, kernel_size=(1, 1), stride=(1, 1))
+      (dropout): Dropout(p=0.0, inplace=False)
+      (act): LeakyReLU(negative_slope=0.2)
+      (short): Identity()
+    )
+  )
+  (conv_out): ResnetBlock(
+    (norm1): PixelwiseNorm()
+    (conv1): PartialConv2d(512, 512, kernel_size=(1, 1), stride=(1, 1))
+    (norm2): PixelwiseNorm()
+    (conv2): PartialConv2d(512, 512, kernel_size=(1, 1), stride=(1, 1))
+    (dropout): Dropout(p=0.0, inplace=False)
+    (act): LeakyReLU(negative_slope=0.2)
+    (short): Identity()
+  )
+)[Network E] Total number of parameters : 3.329 MDiffDecoder(
+  (conv_in): PartialConv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (mid): Module(
+    (block1): ResnetBlock(
+      (norm1): PixelwiseNorm()
+      (conv1): PartialConv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (norm2): PixelwiseNorm()
+      (conv2): PartialConv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (dropout): Dropout(p=0.0, inplace=False)
+      (act): LeakyReLU(negative_slope=0.2)
+      (short): Identity()
+    )
+    (attn): TransformerEncoderLayer(
+      (attn): MultiheadAttention(
+        (dropout): Dropout(p=0.0, inplace=False)
+        (to_q): Linear(in_features=512, out_features=512, bias=True)
+        (to_k): Linear(in_features=512, out_features=512, bias=True)
+        (to_v): Linear(in_features=512, out_features=512, bias=True)
+        (to_out): Linear(in_features=512, out_features=512, bias=True)
+      )
+      (conv1): PartialConv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1))
+      (conv2): PartialConv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1))
+      (norm1): PixelwiseNorm()
+      (norm2): PixelwiseNorm()
+      (dropout): Dropout(p=0.0, inplace=False)
+      (activation): GELU()
+    )
+    (block2): ResnetBlock(
+      (norm1): PixelwiseNorm()
+      (conv1): PartialConv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (norm2): PixelwiseNorm()
+      (conv2): PartialConv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (dropout): Dropout(p=0.0, inplace=False)
+      (act): LeakyReLU(negative_slope=0.2)
+      (short): Identity()
+    )
+  )
+  (up): ModuleList(
+    (0): Module(
+      (block): ModuleList(
+        (0): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(512, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): PartialConv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): Identity()
+        )
+      )
+      (attn): ModuleList(
+        (0): TransformerEncoderLayer(
+          (attn): MultiheadAttention(
+            (dropout): Dropout(p=0.0, inplace=False)
+            (to_q): Linear(in_features=256, out_features=256, bias=True)
+            (to_k): Linear(in_features=256, out_features=256, bias=True)
+            (to_v): Linear(in_features=256, out_features=256, bias=True)
+            (to_out): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (conv1): PartialConv2d(256, 2048, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): PartialConv2d(2048, 256, kernel_size=(1, 1), stride=(1, 1))
+          (norm1): PixelwiseNorm()
+          (norm2): PixelwiseNorm()
+          (dropout): Dropout(p=0.0, inplace=False)
+          (activation): GELU()
+        )
+        (1): TransformerEncoderLayer(
+          (attn): MultiheadAttention(
+            (dropout): Dropout(p=0.0, inplace=False)
+            (to_q): Linear(in_features=256, out_features=256, bias=True)
+            (to_k): Linear(in_features=256, out_features=256, bias=True)
+            (to_v): Linear(in_features=256, out_features=256, bias=True)
+            (to_out): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (conv1): PartialConv2d(256, 2048, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): PartialConv2d(2048, 256, kernel_size=(1, 1), stride=(1, 1))
+          (norm1): PixelwiseNorm()
+          (norm2): PixelwiseNorm()
+          (dropout): Dropout(p=0.0, inplace=False)
+          (activation): GELU()
+        )
+      )
+      (noise): ModuleList(
+        (0): NoiseInjection()
+        (1): NoiseInjection()
+      )
+      (out): ToRGB(
+        (conv): Sequential(
+          (0): PixelwiseNorm()
+          (1): LeakyReLU(negative_slope=0.2)
+          (2): PartialConv2d(256, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (upsample): UpSample(
+        (conv): PartialConv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (1): Module(
+      (block): ModuleList(
+        (0): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(256, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): PartialConv2d(256, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): Identity()
+        )
+      )
+      (attn): ModuleList()
+      (noise): ModuleList(
+        (0): NoiseInjection()
+        (1): NoiseInjection()
+      )
+      (out): ToRGB(
+        (upsample): Upsample(scale_factor=2.0, mode=bilinear)
+        (conv): Sequential(
+          (0): PixelwiseNorm()
+          (1): LeakyReLU(negative_slope=0.2)
+          (2): PartialConv2d(131, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (upsample): UpSample(
+        (conv): PartialConv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (2): Module(
+      (block): ModuleList(
+        (0): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): PartialConv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): Identity()
+        )
+      )
+      (attn): ModuleList()
+      (noise): ModuleList(
+        (0): NoiseInjection()
+        (1): NoiseInjection()
+      )
+      (out): ToRGB(
+        (upsample): Upsample(scale_factor=2.0, mode=bilinear)
+        (conv): Sequential(
+          (0): PixelwiseNorm()
+          (1): LeakyReLU(negative_slope=0.2)
+          (2): PartialConv2d(67, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (upsample): UpSample(
+        (conv): PartialConv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (3): Module(
+      (block): ModuleList(
+        (0): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): PartialConv2d(64, 32, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): Identity()
+        )
+      )
+      (attn): ModuleList()
+      (noise): ModuleList(
+        (0): NoiseInjection()
+        (1): NoiseInjection()
+      )
+      (out): ToRGB(
+        (upsample): Upsample(scale_factor=2.0, mode=bilinear)
+        (conv): Sequential(
+          (0): PixelwiseNorm()
+          (1): LeakyReLU(negative_slope=0.2)
+          (2): PartialConv2d(35, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (upsample): UpSample(
+        (conv): PartialConv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+  )
+  (decode): ToRGB(
+    (upsample): Upsample(scale_factor=2.0, mode=bilinear)
+    (conv): Sequential(
+      (0): PixelwiseNorm()
+      (1): LeakyReLU(negative_slope=0.2)
+      (2): PartialConv2d(35, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+  )
+)[Network G] Total number of parameters : 22.476 MStyleDiscriminator(
+  (convs): Sequential(
+    (0): ConvLayer(
+      (0): EqualConv2d(3, 32, 1, stride=1, padding=0)
+      (1): FusedLeakyReLU()
+    )
+    (1): StyleBlock(
+      (conv1): ConvLayer(
+        (0): EqualConv2d(32, 32, 3, stride=1, padding=1)
+        (1): FusedLeakyReLU()
+      )
+      (conv2): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(32, 64, 3, stride=2, padding=0)
+        (2): FusedLeakyReLU()
+      )
+      (skip): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(32, 64, 1, stride=2, padding=0)
+      )
+    )
+    (2): StyleBlock(
+      (conv1): ConvLayer(
+        (0): EqualConv2d(64, 64, 3, stride=1, padding=1)
+        (1): FusedLeakyReLU()
+      )
+      (conv2): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(64, 128, 3, stride=2, padding=0)
+        (2): FusedLeakyReLU()
+      )
+      (skip): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(64, 128, 1, stride=2, padding=0)
+      )
+    )
+    (3): StyleBlock(
+      (conv1): ConvLayer(
+        (0): EqualConv2d(128, 128, 3, stride=1, padding=1)
+        (1): FusedLeakyReLU()
+      )
+      (conv2): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(128, 256, 3, stride=2, padding=0)
+        (2): FusedLeakyReLU()
+      )
+      (skip): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(128, 256, 1, stride=2, padding=0)
+      )
+    )
+    (4): StyleBlock(
+      (conv1): ConvLayer(
+        (0): EqualConv2d(256, 256, 3, stride=1, padding=1)
+        (1): FusedLeakyReLU()
+      )
+      (conv2): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(256, 512, 3, stride=2, padding=0)
+        (2): FusedLeakyReLU()
+      )
+      (skip): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(256, 512, 1, stride=2, padding=0)
+      )
+    )
+    (5): StyleBlock(
+      (conv1): ConvLayer(
+        (0): EqualConv2d(512, 512, 3, stride=1, padding=1)
+        (1): FusedLeakyReLU()
+      )
+      (conv2): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(512, 512, 3, stride=2, padding=0)
+        (2): FusedLeakyReLU()
+      )
+      (skip): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(512, 512, 1, stride=2, padding=0)
+      )
+    )
+    (6): StyleBlock(
+      (conv1): ConvLayer(
+        (0): EqualConv2d(512, 512, 3, stride=1, padding=1)
+        (1): FusedLeakyReLU()
+      )
+      (conv2): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(512, 512, 3, stride=2, padding=0)
+        (2): FusedLeakyReLU()
+      )
+      (skip): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(512, 512, 1, stride=2, padding=0)
+      )
+    )
+  )
+  (final_conv): ConvLayer(
+    (0): EqualConv2d(513, 512, 3, stride=1, padding=1)
+    (1): FusedLeakyReLU()
+  )
+  (final_linear): Sequential(
+    (0): EqualLinear(8192, 512)
+    (1): EqualLinear(512, 1)
+  )
+)[Network D] Total number of parameters : 19.049 MTransformer(
+  (token_embed): PartialConv2d(512, 512, kernel_size=(1, 1), stride=(1, 1))
+  (pos_embed): PositionEmbeddingLearned(
+    (row_embed): Embedding(32, 512)
+    (col_embed): Embedding(32, 512)
+  )
+  (drop): Dropout(p=0.0, inplace=False)
+  (encoder_trans): TransformerEncoder(
+    (layers): ModuleList(
+      (0): TransformerEncoderLayer(
+        (attn): MultiheadAttention(
+          (dropout): Dropout(p=0.0, inplace=False)
+          (to_q): Linear(in_features=512, out_features=512, bias=True)
+          (to_k): Linear(in_features=512, out_features=512, bias=True)
+          (to_v): Linear(in_features=512, out_features=512, bias=True)
+          (to_out): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (conv1): PartialConv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1))
+        (conv2): PartialConv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1))
+        (norm1): PixelwiseNorm()
+        (norm2): PixelwiseNorm()
+        (dropout): Dropout(p=0.0, inplace=False)
+        (activation): GELU()
+      )
+      (1): TransformerEncoderLayer(
+        (attn): MultiheadAttention(
+          (dropout): Dropout(p=0.0, inplace=False)
+          (to_q): Linear(in_features=512, out_features=512, bias=True)
+          (to_k): Linear(in_features=512, out_features=512, bias=True)
+          (to_v): Linear(in_features=512, out_features=512, bias=True)
+          (to_out): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (conv1): PartialConv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1))
+        (conv2): PartialConv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1))
+        (norm1): PixelwiseNorm()
+        (norm2): PixelwiseNorm()
+        (dropout): Dropout(p=0.0, inplace=False)
+        (activation): GELU()
+      )
+      (2): TransformerEncoderLayer(
+        (attn): MultiheadAttention(
+          (dropout): Dropout(p=0.0, inplace=False)
+          (to_q): Linear(in_features=512, out_features=512, bias=True)
+          (to_k): Linear(in_features=512, out_features=512, bias=True)
+          (to_v): Linear(in_features=512, out_features=512, bias=True)
+          (to_out): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (conv1): PartialConv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1))
+        (conv2): PartialConv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1))
+        (norm1): PixelwiseNorm()
+        (norm2): PixelwiseNorm()
+        (dropout): Dropout(p=0.0, inplace=False)
+        (activation): GELU()
+      )
+      (3): TransformerEncoderLayer(
+        (attn): MultiheadAttention(
+          (dropout): Dropout(p=0.0, inplace=False)
+          (to_q): Linear(in_features=512, out_features=512, bias=True)
+          (to_k): Linear(in_features=512, out_features=512, bias=True)
+          (to_v): Linear(in_features=512, out_features=512, bias=True)
+          (to_out): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (conv1): PartialConv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1))
+        (conv2): PartialConv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1))
+        (norm1): PixelwiseNorm()
+        (norm2): PixelwiseNorm()
+        (dropout): Dropout(p=0.0, inplace=False)
+        (activation): GELU()
+      )
+      (4): TransformerEncoderLayer(
+        (attn): MultiheadAttention(
+          (dropout): Dropout(p=0.0, inplace=False)
+          (to_q): Linear(in_features=512, out_features=512, bias=True)
+          (to_k): Linear(in_features=512, out_features=512, bias=True)
+          (to_v): Linear(in_features=512, out_features=512, bias=True)
+          (to_out): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (conv1): PartialConv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1))
+        (conv2): PartialConv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1))
+        (norm1): PixelwiseNorm()
+        (norm2): PixelwiseNorm()
+        (dropout): Dropout(p=0.0, inplace=False)
+        (activation): GELU()
+      )
+      (5): TransformerEncoderLayer(
+        (attn): MultiheadAttention(
+          (dropout): Dropout(p=0.0, inplace=False)
+          (to_q): Linear(in_features=512, out_features=512, bias=True)
+          (to_k): Linear(in_features=512, out_features=512, bias=True)
+          (to_v): Linear(in_features=512, out_features=512, bias=True)
+          (to_out): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (conv1): PartialConv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1))
+        (conv2): PartialConv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1))
+        (norm1): PixelwiseNorm()
+        (norm2): PixelwiseNorm()
+        (dropout): Dropout(p=0.0, inplace=False)
+        (activation): GELU()
+      )
+      (6): TransformerEncoderLayer(
+        (attn): MultiheadAttention(
+          (dropout): Dropout(p=0.0, inplace=False)
+          (to_q): Linear(in_features=512, out_features=512, bias=True)
+          (to_k): Linear(in_features=512, out_features=512, bias=True)
+          (to_v): Linear(in_features=512, out_features=512, bias=True)
+          (to_out): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (conv1): PartialConv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1))
+        (conv2): PartialConv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1))
+        (norm1): PixelwiseNorm()
+        (norm2): PixelwiseNorm()
+        (dropout): Dropout(p=0.0, inplace=False)
+        (activation): GELU()
+      )
+      (7): TransformerEncoderLayer(
+        (attn): MultiheadAttention(
+          (dropout): Dropout(p=0.0, inplace=False)
+          (to_q): Linear(in_features=512, out_features=512, bias=True)
+          (to_k): Linear(in_features=512, out_features=512, bias=True)
+          (to_v): Linear(in_features=512, out_features=512, bias=True)
+          (to_out): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (conv1): PartialConv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1))
+        (conv2): PartialConv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1))
+        (norm1): PixelwiseNorm()
+        (norm2): PixelwiseNorm()
+        (dropout): Dropout(p=0.0, inplace=False)
+        (activation): GELU()
+      )
+      (8): TransformerEncoderLayer(
+        (attn): MultiheadAttention(
+          (dropout): Dropout(p=0.0, inplace=False)
+          (to_q): Linear(in_features=512, out_features=512, bias=True)
+          (to_k): Linear(in_features=512, out_features=512, bias=True)
+          (to_v): Linear(in_features=512, out_features=512, bias=True)
+          (to_out): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (conv1): PartialConv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1))
+        (conv2): PartialConv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1))
+        (norm1): PixelwiseNorm()
+        (norm2): PixelwiseNorm()
+        (dropout): Dropout(p=0.0, inplace=False)
+        (activation): GELU()
+      )
+      (9): TransformerEncoderLayer(
+        (attn): MultiheadAttention(
+          (dropout): Dropout(p=0.0, inplace=False)
+          (to_q): Linear(in_features=512, out_features=512, bias=True)
+          (to_k): Linear(in_features=512, out_features=512, bias=True)
+          (to_v): Linear(in_features=512, out_features=512, bias=True)
+          (to_out): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (conv1): PartialConv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1))
+        (conv2): PartialConv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1))
+        (norm1): PixelwiseNorm()
+        (norm2): PixelwiseNorm()
+        (dropout): Dropout(p=0.0, inplace=False)
+        (activation): GELU()
+      )
+      (10): TransformerEncoderLayer(
+        (attn): MultiheadAttention(
+          (dropout): Dropout(p=0.0, inplace=False)
+          (to_q): Linear(in_features=512, out_features=512, bias=True)
+          (to_k): Linear(in_features=512, out_features=512, bias=True)
+          (to_v): Linear(in_features=512, out_features=512, bias=True)
+          (to_out): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (conv1): PartialConv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1))
+        (conv2): PartialConv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1))
+        (norm1): PixelwiseNorm()
+        (norm2): PixelwiseNorm()
+        (dropout): Dropout(p=0.0, inplace=False)
+        (activation): GELU()
+      )
+      (11): TransformerEncoderLayer(
+        (attn): MultiheadAttention(
+          (dropout): Dropout(p=0.0, inplace=False)
+          (to_q): Linear(in_features=512, out_features=512, bias=True)
+          (to_k): Linear(in_features=512, out_features=512, bias=True)
+          (to_v): Linear(in_features=512, out_features=512, bias=True)
+          (to_out): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (conv1): PartialConv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1))
+        (conv2): PartialConv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1))
+        (norm1): PixelwiseNorm()
+        (norm2): PixelwiseNorm()
+        (dropout): Dropout(p=0.0, inplace=False)
+        (activation): GELU()
+      )
+    )
+  )
+  (decoder_trans): TransformerDecoder(
+    (layers): ModuleList()
+  )
+  (to_token): Sequential(
+    (0): PixelwiseNorm()
+    (1): GELU()
+    (2): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1))
+  )
+)[Network T] Total number of parameters : 38.375 MRefinedGenerator(
+  (encode): PartialConv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (down): ModuleList(
+    (0): Module(
+      (downsample): DownSample(
+        (conv): PartialConv2d(32, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      )
+      (block): ModuleList(
+        (0): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): PartialConv2d(32, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): Identity()
+        )
+      )
+    )
+    (1): Module(
+      (downsample): DownSample(
+        (conv): PartialConv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      )
+      (block): ModuleList(
+        (0): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): PartialConv2d(64, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): Identity()
+        )
+      )
+    )
+    (2): Module(
+      (downsample): DownSample(
+        (conv): PartialConv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      )
+      (block): ModuleList(
+        (0): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): PartialConv2d(128, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): Identity()
+        )
+      )
+    )
+    (3): Module(
+      (downsample): DownSample(
+        (conv): PartialConv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      )
+      (block): ModuleList(
+        (0): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): PartialConv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): Identity()
+        )
+      )
+    )
+  )
+  (mid): ModuleList(
+    (0): ResnetBlock(
+      (norm1): PixelwiseNorm()
+      (conv1): PartialConv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (norm2): PixelwiseNorm()
+      (conv2): PartialConv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (dropout): Dropout(p=0.0, inplace=False)
+      (act): LeakyReLU(negative_slope=0.2)
+      (short): Identity()
+    )
+    (1): ResnetBlock(
+      (norm1): PixelwiseNorm()
+      (conv1): PartialConv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (norm2): PixelwiseNorm()
+      (conv2): PartialConv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (dropout): Dropout(p=0.0, inplace=False)
+      (act): LeakyReLU(negative_slope=0.2)
+      (short): Identity()
+    )
+    (2): ResnetBlock(
+      (norm1): PixelwiseNorm()
+      (conv1): PartialConv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (norm2): PixelwiseNorm()
+      (conv2): PartialConv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (dropout): Dropout(p=0.0, inplace=False)
+      (act): LeakyReLU(negative_slope=0.2)
+      (short): Identity()
+    )
+    (3): ResnetBlock(
+      (norm1): PixelwiseNorm()
+      (conv1): PartialConv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (norm2): PixelwiseNorm()
+      (conv2): PartialConv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (dropout): Dropout(p=0.0, inplace=False)
+      (act): LeakyReLU(negative_slope=0.2)
+      (short): Identity()
+    )
+    (4): ResnetBlock(
+      (norm1): PixelwiseNorm()
+      (conv1): PartialConv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (norm2): PixelwiseNorm()
+      (conv2): PartialConv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (dropout): Dropout(p=0.0, inplace=False)
+      (act): LeakyReLU(negative_slope=0.2)
+      (short): Identity()
+    )
+    (5): ResnetBlock(
+      (norm1): PixelwiseNorm()
+      (conv1): PartialConv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (norm2): PixelwiseNorm()
+      (conv2): PartialConv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (dropout): Dropout(p=0.0, inplace=False)
+      (act): LeakyReLU(negative_slope=0.2)
+      (short): Identity()
+    )
+  )
+  (up): ModuleList(
+    (0): Module(
+      (block): ModuleList(
+        (0): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(512, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): PartialConv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): Identity()
+        )
+      )
+      (out): ToRGB(
+        (conv): Sequential(
+          (0): PixelwiseNorm()
+          (1): LeakyReLU(negative_slope=0.2)
+          (2): PartialConv2d(256, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (upsample): UpSample(
+        (conv): PartialConv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (1): Module(
+      (attn): AttnAware(
+        (query_conv): Sequential(
+          (0): PixelwiseNorm()
+          (1): LeakyReLU(negative_slope=0.2)
+          (2): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (key_conv): Sequential(
+          (0): PixelwiseNorm()
+          (1): LeakyReLU(negative_slope=0.2)
+          (2): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (weight): Conv2d(4, 2, kernel_size=(1, 1), stride=(1, 1))
+        (to_out): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(256, 128, kernel_size=(1, 1), stride=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(128, 128, kernel_size=(1, 1), stride=(1, 1))
+          (dropout): Dropout(p=0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): PartialConv2d(256, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (block): ModuleList(
+        (0): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(256, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): PartialConv2d(256, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): Identity()
+        )
+      )
+      (out): ToRGB(
+        (upsample): Upsample(scale_factor=2.0, mode=bilinear)
+        (conv): Sequential(
+          (0): PixelwiseNorm()
+          (1): LeakyReLU(negative_slope=0.2)
+          (2): PartialConv2d(131, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (upsample): UpSample(
+        (conv): PartialConv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (2): Module(
+      (block): ModuleList(
+        (0): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): PartialConv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): Identity()
+        )
+      )
+      (out): ToRGB(
+        (upsample): Upsample(scale_factor=2.0, mode=bilinear)
+        (conv): Sequential(
+          (0): PixelwiseNorm()
+          (1): LeakyReLU(negative_slope=0.2)
+          (2): PartialConv2d(67, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (upsample): UpSample(
+        (conv): PartialConv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (3): Module(
+      (block): ModuleList(
+        (0): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): PartialConv2d(64, 32, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ResnetBlock(
+          (norm1): PixelwiseNorm()
+          (conv1): PartialConv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (norm2): PixelwiseNorm()
+          (conv2): PartialConv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (dropout): Dropout(p=0.0, inplace=False)
+          (act): LeakyReLU(negative_slope=0.2)
+          (short): Identity()
+        )
+      )
+      (out): ToRGB(
+        (upsample): Upsample(scale_factor=2.0, mode=bilinear)
+        (conv): Sequential(
+          (0): PixelwiseNorm()
+          (1): LeakyReLU(negative_slope=0.2)
+          (2): PartialConv2d(35, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (upsample): UpSample(
+        (conv): PartialConv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+  )
+  (decode): ToRGB(
+    (upsample): Upsample(scale_factor=2.0, mode=bilinear)
+    (conv): Sequential(
+      (0): PixelwiseNorm()
+      (1): LeakyReLU(negative_slope=0.2)
+      (2): PartialConv2d(35, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+  )
+)[Network G_Ref] Total number of parameters : 45.268 MStyleDiscriminator(
+  (convs): Sequential(
+    (0): ConvLayer(
+      (0): EqualConv2d(3, 32, 1, stride=1, padding=0)
+      (1): FusedLeakyReLU()
+    )
+    (1): StyleBlock(
+      (conv1): ConvLayer(
+        (0): EqualConv2d(32, 32, 3, stride=1, padding=1)
+        (1): FusedLeakyReLU()
+      )
+      (conv2): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(32, 64, 3, stride=2, padding=0)
+        (2): FusedLeakyReLU()
+      )
+      (skip): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(32, 64, 1, stride=2, padding=0)
+      )
+    )
+    (2): StyleBlock(
+      (conv1): ConvLayer(
+        (0): EqualConv2d(64, 64, 3, stride=1, padding=1)
+        (1): FusedLeakyReLU()
+      )
+      (conv2): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(64, 128, 3, stride=2, padding=0)
+        (2): FusedLeakyReLU()
+      )
+      (skip): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(64, 128, 1, stride=2, padding=0)
+      )
+    )
+    (3): StyleBlock(
+      (conv1): ConvLayer(
+        (0): EqualConv2d(128, 128, 3, stride=1, padding=1)
+        (1): FusedLeakyReLU()
+      )
+      (conv2): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(128, 256, 3, stride=2, padding=0)
+        (2): FusedLeakyReLU()
+      )
+      (skip): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(128, 256, 1, stride=2, padding=0)
+      )
+    )
+    (4): StyleBlock(
+      (conv1): ConvLayer(
+        (0): EqualConv2d(256, 256, 3, stride=1, padding=1)
+        (1): FusedLeakyReLU()
+      )
+      (conv2): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(256, 512, 3, stride=2, padding=0)
+        (2): FusedLeakyReLU()
+      )
+      (skip): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(256, 512, 1, stride=2, padding=0)
+      )
+    )
+    (5): StyleBlock(
+      (conv1): ConvLayer(
+        (0): EqualConv2d(512, 512, 3, stride=1, padding=1)
+        (1): FusedLeakyReLU()
+      )
+      (conv2): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(512, 512, 3, stride=2, padding=0)
+        (2): FusedLeakyReLU()
+      )
+      (skip): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(512, 512, 1, stride=2, padding=0)
+      )
+    )
+    (6): StyleBlock(
+      (conv1): ConvLayer(
+        (0): EqualConv2d(512, 512, 3, stride=1, padding=1)
+        (1): FusedLeakyReLU()
+      )
+      (conv2): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(512, 512, 3, stride=2, padding=0)
+        (2): FusedLeakyReLU()
+      )
+      (skip): ConvLayer(
+        (0): Blur()
+        (1): EqualConv2d(512, 512, 1, stride=2, padding=0)
+      )
+    )
+  )
+  (final_conv): ConvLayer(
+    (0): EqualConv2d(513, 512, 3, stride=1, padding=1)
+    (1): FusedLeakyReLU()
+  )
+  (final_linear): Sequential(
+    (0): EqualLinear(8192, 512)
+    (1): EqualLinear(512, 1)
+  )
+)[Network D_Ref] Total number of parameters : 19.049 M-----------------------------------------------
