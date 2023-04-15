@@ -114,10 +114,12 @@ class CreateDataset(data.Dataset):
             mask = mask_transform(mask_pil)
             mask_pil.close()
             if self.opt.isTrain:
+                # mask = self._mask_dilation(mask)
                 mask = np.array(mask) > 0
             else:
-                # this will make the boundary of the mask more smooth
+                # mask = np.array(mask) < 128
                 mask = np.array(mask) > 0
+                # mask = np.array(mask) < 128
             mask = torch.tensor(mask).view(1, h, w).float()
 
             return mask, mask_type
@@ -127,6 +129,7 @@ class CreateDataset(data.Dataset):
 
 def dataloader(opt):
     datasets = CreateDataset(opt)
+    print(f"datasets are {datasets}")
     dataset = data.DataLoader(datasets, batch_size=opt.batch_size, shuffle=not opt.no_shuffle,
                               num_workers=int(opt.nThreads), drop_last=True)
 
