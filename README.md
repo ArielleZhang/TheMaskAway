@@ -10,9 +10,10 @@ We used Nvidia RTX3060 (sm_86) to train, which requires cuda 11.0 above so the c
 We modifed and cloned the MaskTheFace: https://github.com/aqeelanwar/MaskTheFace to generate the masks. TFill is taking two inputs: the original image and the mask only. We modified the ```MaskTheFace/mask_the_face.py``` file to generate and save the mask. We also wrote our own script ```MaskTheFace/preproc.py``` to preprocess the data options are set ```--convert``` to convert all images to either jpg format, set ```--resize``` to resize the images, and set ```--compare_dir``` compared the input dir and masks dir and remove all the images in the input image dir wich does not have a corresponding mask, and set ```--crop``` to crop and enlarge the input images which is used for enlarging the digital masks to make sure it covers the entire medical mask.
 
 We preprocessed three different datasets:
-1. Faces Kaggle dataset: https://www.kaggle.com/datasets/varump66/face-images-13233, with 256 by 256 resolution but only the last 8k examples (roughly).
-2. FFHQ Kaggle dataset: https://www.kaggle.com/datasets/arnaud58/flickrfaceshq-dataset-ffhq, with 512 by 512 resolution but only the first 10k examples (roughly).
-3. A small personalized dataset containing 100 images (roughly) of Arielle.
+1. Faces Kaggle dataset: https://www.kaggle.com/datasets/varump66/face-images-13233, with 256 by 256 resolution of 8k examples (roughly) + 2k validation examples.
+2. FFHQ Kaggle dataset: https://www.kaggle.com/datasets/arnaud58/flickrfaceshq-dataset-ffhq, with 512 by 512 resolution of 10k examples (roughly).
+3. A small personalized Taylor Swift dataset containing 160 examples + 20 validation examples.
+3. A small personalized Benedict Cumberbatch dataset containing 115 examples + 10 validation examples.
 4. And a small test dataset for quick test purposes, only 5 images.
 Notice that every dataset contains original images and the corresponding masks.
 
@@ -49,7 +50,7 @@ FID on the 2000 validation dataset: 6.8383
 We cuztomized the base model on Taylor Swift dataset (160 images) for customization. For validation we selected 10% of the datasets and calculated the FID score. For qualitative testings we picked 4 images of Taylor Swift wearing a mask and used the Meta SAM API (code included in ```Mask_Extractionipynb```) to extract the mask for regeneration. Everything is in the results/TS folder.
 
 #### M3_Base Model BenedictCumberbatch ####
-We cuztomized the base model on Benedict Cumberbatch dataset (122 images) for customization. For validation we selected 10% of the datasets and calculated the FID score. For qualitative testings we picked 4 images of Benedict Cumberbatch wearing a mask and used the Meta SAM API (code included in ```Mask_Extractionipynb```) to extract the mask for regeneration. Everything is in the results/BC folder.
+We cuztomized the base model on Benedict Cumberbatch dataset (115 images) for customization. For validation we selected 10% of the datasets and calculated the FID score. For qualitative testings we picked 4 images of Benedict Cumberbatch wearing a mask and used the Meta SAM API (code included in ```Mask_Extractionipynb```) to extract the mask for regeneration. Everything is in the results/BC folder.
 
 #### Future Steps ####
 1. If we have enougth of time, we can continue training M1, M2 models from scratch.
@@ -72,13 +73,30 @@ primaryClass={cs.CV}
 
 TFill: 
 ```
-@misc{anwar2020masked,
-title={Masked Face Recognition for Secure Authentication},
-author={Aqeel Anwar and Arijit Raychowdhury},
-year={2020},
-eprint={2008.11104},
-archivePrefix={arXiv},
-primaryClass={cs.CV}
+@InProceedings{Zheng_2022_CVPR,
+    author    = {Zheng, Chuanxia and Cham, Tat-Jen and Cai, Jianfei and Phung, Dinh},
+    title     = {Bridging Global Context Interactions for High-Fidelity Image Completion},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2022},
+    pages     = {11512-11522}
+}
+
+@inproceedings{zheng2019pluralistic,
+  title={Pluralistic Image Completion},
+  author={Zheng, Chuanxia and Cham, Tat-Jen and Cai, Jianfei},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  pages={1438--1447},
+  year={2019}
+}
+
+@article{zheng2021pluralistic,
+  title={Pluralistic Free-From Image Completion},
+  author={Zheng, Chuanxia and Cham, Tat-Jen and Cai, Jianfei},
+  journal={International Journal of Computer Vision},
+  pages={1--20},
+  year={2021},
+  publisher={Springer}
 }
 ```
 
