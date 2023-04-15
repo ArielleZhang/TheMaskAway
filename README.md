@@ -40,20 +40,47 @@ Saved training outcomes are in the checkpoints folder, saved training models can
 
 ### Test ###
 
-### M3_Base Model###
+#### M3_Base Model ####
 This is the base model we trained and any user can provide 100-200 selfies for us to customize the model by fine tuning on their photos for better inference results.
 The base model is trained on both FFHQ and faces datasets with our own masks. For validation we selected 2000 from the faces datasets and calculated the FID score. Everything is in the results/M3 folder.
 FID on the 2000 validation dataset: 6.8383
 
-### M3_Base Model TaylorSwift###
+#### M3_Base Model TaylorSwift ####
 We cuztomized the base model on Taylor Swift dataset (160 images) for customization. For validation we selected 10% of the datasets and calculated the FID score. For qualitative testings we picked 4 images of Taylor Swift wearing a mask and used the Meta SAM API (code included in ```Mask_Extractionipynb```) to extract the mask for regeneration. Everything is in the results/TS folder.
 
-### M3_Base Model BenedictCumberbatch###
+#### M3_Base Model BenedictCumberbatch ####
 We cuztomized the base model on Benedict Cumberbatch dataset (122 images) for customization. For validation we selected 10% of the datasets and calculated the FID score. For qualitative testings we picked 4 images of Benedict Cumberbatch wearing a mask and used the Meta SAM API (code included in ```Mask_Extractionipynb```) to extract the mask for regeneration. Everything is in the results/BC folder.
 
-#### Future Steps ###
+#### Future Steps ####
 1. If we have enougth of time, we can continue training M1, M2 models from scratch.
 2. To further improve the performance, we tried to add 10 decoders to train, however, given the time limit we also did not continue. In the future we can continue training with decoder.
 3. When the input digital mask does not cover the entire medial mask, the exposed edge will affect the outcome, we tried to resize the generated digital mask however due to randomness sometimes the mask still won't be covered entirely. In the future we can try to improve this.
 
 
+### Citations ###
+MaskTheFace:
+```
+@misc{anwar2020masked,
+title={Masked Face Recognition for Secure Authentication},
+author={Aqeel Anwar and Arijit Raychowdhury},
+year={2020},
+eprint={2008.11104},
+archivePrefix={arXiv},
+primaryClass={cs.CV}
+} 
+```
+
+TFill: 
+```
+@misc{anwar2020masked,
+title={Masked Face Recognition for Secure Authentication},
+author={Aqeel Anwar and Arijit Raychowdhury},
+year={2020},
+eprint={2008.11104},
+archivePrefix={arXiv},
+primaryClass={cs.CV}
+}
+```
+
+### License ###
+This project is licensed under the MIT License - see the LICENSE.md file for details
