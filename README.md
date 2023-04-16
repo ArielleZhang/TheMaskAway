@@ -10,12 +10,12 @@ We used Nvidia RTX3060 (sm_86) to train, which requires cuda 11.0 above so the c
 We modifed and cloned the MaskTheFace: https://github.com/aqeelanwar/MaskTheFace to generate the masks. TFill is taking two inputs: the original image and the mask only. We modified the ```MaskTheFace/mask_the_face.py``` file to generate and save the mask. We also wrote our own script ```MaskTheFace/preproc.py``` to preprocess the data options are set ```--convert``` to convert all images to either jpg format, set ```--resize``` to resize the images, and set ```--compare_dir``` compared the input dir and masks dir and remove all the images in the input image dir wich does not have a corresponding mask, and set ```--crop``` to crop and enlarge the input images which is used for enlarging the digital masks to make sure it covers the entire medical mask.
 
 We preprocessed three different datasets:
-1. Faces Kaggle dataset: https://www.kaggle.com/datasets/varump66/face-images-13233, with 256 by 256 resolution of 8k examples (roughly) + 2k validation examples.
+1. Faces Kaggle dataset: https://www.kaggle.com/datasets/varump66/face-images-13233, with 256 by 256 resolution of 8k examples (roughly) + 2k testing examples.
 2. FFHQ Kaggle dataset: https://www.kaggle.com/datasets/arnaud58/flickrfaceshq-dataset-ffhq, with 512 by 512 resolution of 10k examples (roughly).
-3. A small personalized Taylor Swift dataset containing 160 examples + 20 validation examples.
-3. A small personalized Benedict Cumberbatch dataset containing 115 examples + 10 validation examples.
-4. And a small test dataset for quick test purposes, only 5 images.
-Notice that every dataset contains original images and the corresponding masks.
+3. A small personalized Taylor Swift dataset containing 133 examples + 16 testing examples.
+4. A small personalized Benedict Cumberbatch dataset containing 115 examples + 14 testing examples.
+
+Notice that every dataset contains original images and the corresponding masks and the cuztomized datasets can be found in the Customized_Datasets folder
 
 ### Training Models ###
 
@@ -33,9 +33,9 @@ _Model 2_: ```M2_FFHQ_from_scratch``` on FFHQ with our own masks, training model
 
 _Model 3_: ```M3_FFHQ_pretrained``` on FFHQ with our own masks, training model on top of their pretrained ffhq model which is trained on FFHQ512 for 20,000,000 iterations. We trained the pretrained model on our own FFHQ masks dataset (10,000) for 8,000,000 iterations and to add diversity we further trained on the faces dataset (8000) for 4,000,000 iterations. *This one is the best base model we trained*
 
-_Model 3 TaylorSwift_: ```M3_FFHQ_pretrained_TS``` fine tuned ```M3_FFHQ_pretrained``` on Taylor Swift (160 images) for ___ iterations.
+_Model 3 TaylorSwift_: ```M3_FFHQ_pretrained_TS``` fine tuned ```M3_FFHQ_pretrained``` on Taylor Swift (133 images) for 60,000 iterations untill the model converges. The plotted loss curve showed overfitting close to 60,000 thus we used the model saved at checkpoint 50,000.
 
-_Model 3 BenedictCumberbatch_: ```M3_FFHQ_pretrained_BC``` fine tuned ```M3_FFHQ_pretrained``` on Benedict Cumberbatch (122 images) for ___ iterations.
+_Model 3 BenedictCumberbatch_: ```M3_FFHQ_pretrained_BC``` fine tuned ```M3_FFHQ_pretrained``` on Benedict Cumberbatch (115 images) for 50,000 iterations untill the model converges. The plotted loss curve showed overfitting close to 40,000 thus we used the model saved at checkpoint 40,000.
 
 Saved training outcomes are in the checkpoints folder, saved training models can be found here: https://drive.google.com/drive/folders/1dYA3I32faUzpwaiH8NCgcDqTCo44OqzY?usp=sharing
 
@@ -43,19 +43,32 @@ Saved training outcomes are in the checkpoints folder, saved training models can
 
 #### M3_Base Model ####
 This is the base model we trained and any user can provide 100-200 selfies for us to customize the model by fine tuning on their photos for better inference results.
-The base model is trained on both FFHQ and faces datasets with our own masks. For validation we selected 2000 from the faces datasets and calculated the FID score. Everything is in the results/M3 folder.
-FID on the 2000 validation dataset: 6.8383
+The base model is trained on both FFHQ and faces datasets with our own masks. For testing we selected 2000 from the faces datasets and calculated the FID score. Everything is in the results/M3 folder.
+FID on the 2000 testing dataset: 6.8383
 
 #### M3_Base Model TaylorSwift ####
-We cuztomized the base model on Taylor Swift dataset (160 images) for customization. For validation we selected 10% of the datasets and calculated the FID score. For qualitative testings we picked 4 images of Taylor Swift wearing a mask and used the Meta SAM API (code included in ```Mask_Extractionipynb```) to extract the mask for regeneration. Everything is in the results/TS folder.
+We cuztomized the base model on Taylor Swift dataset (133 images). For testing we tested the Taylor Swift Model on the TS testing datasets and calculated the FID score. For a fair comparison we also tested the TS testing datasets on the M3 Model.
+M3_TS FID: 33.8927 (with 30-40% mask ratio)
+M3 FID: 68.6593 (with 30-40% mask ratio)
+
+For qualitative testings we picked 4 images of Taylor Swift wearing a mask and used the Meta SAM API (code included in ```Mask_Extraction.ipynb```) to extract the mask for regeneration. 
+
+Everything is in the results/TS folder.
 
 #### M3_Base Model BenedictCumberbatch ####
-We cuztomized the base model on Benedict Cumberbatch dataset (115 images) for customization. For validation we selected 10% of the datasets and calculated the FID score. For qualitative testings we picked 4 images of Benedict Cumberbatch wearing a mask and used the Meta SAM API (code included in ```Mask_Extractionipynb```) to extract the mask for regeneration. Everything is in the results/BC folder.
+We cuztomized the base model on Benedict Cumberbatch dataset (115 images). For testing we tested the Benedict Cumberbatch Model on the BC testing datasets and calculated the FID score. For a fair comparison we also tested the BC testing datasets on the M3 Model.
+M3_BC FID: 23.2846 (with 30-40% mask ratio)
+M3 FID: 27.6326 (with 30-40% mask ratio)
+
+
+
+For qualitative testings we picked 4 images of Benedict Cumberbatch wearing a mask and used the Meta SAM API (code included in ```Mask_Extraction.ipynb```) to extract the mask for regeneration. 
+
+Everything is in the results/BC folder.
 
 #### Future Steps ####
 1. If we have enougth of time, we can continue training M1, M2 models from scratch.
-2. To further improve the performance, we tried to add 10 decoders to train, however, given the time limit we also did not continue. In the future we can continue training with decoder.
-3. When the input digital mask does not cover the entire medial mask, the exposed edge will affect the outcome, we tried to resize the generated digital mask however due to randomness sometimes the mask still won't be covered entirely. In the future we can try to improve this.
+2. When the input digital mask does not cover the entire medial mask, the exposed edge will affect the outcome, we tried to resize the generated digital mask however due to randomness sometimes the mask still won't be covered entirely. In the future we can try to improve this.
 
 
 ### Citations ###
