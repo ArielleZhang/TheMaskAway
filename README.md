@@ -113,7 +113,7 @@ TFill:
 }
 ```
 
-SAM
+SAM:
 ```
 @article{kirillov2023segany,
   title={Segment Anything},
