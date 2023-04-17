@@ -13,7 +13,7 @@ We preprocessed three different datasets:
 1. Faces Kaggle dataset: https://www.kaggle.com/datasets/varump66/face-images-13233, with 256 by 256 resolution of 8k examples (roughly) + 2k testing examples, and 10-20% mask ratio.
 2. FFHQ Kaggle dataset: https://www.kaggle.com/datasets/arnaud58/flickrfaceshq-dataset-ffhq, with 512 by 512 resolution of 10k examples (roughly) and 30-40% mask ratio.
 3. A small personalized Taylor Swift dataset containing 133 examples + 16 testing examples, and 20-30% mask ratio. A small personalized Benedict Cumberbatch dataset containing 115 examples + 14 testing examples, and 20-30% mask ratio.
-4. Four authentic pictures of Taylor Swift wearing real masks, and four authentic pictures of Benedict Cumberbatch wearing real masks
+4. Four authentic pictures of Taylor Swift wearing real masks, and four authentic pictures of Benedict Cumberbatch wearing real masks. 
 
 Notice that every dataset contains original images and the corresponding masks and the cuztomized datasets can be found in the Customized_Datasets folder
 
