@@ -10,10 +10,10 @@ We used Nvidia RTX3060 (sm_86) to train, which requires cuda 11.0 above so the c
 We modifed and cloned the MaskTheFace: https://github.com/aqeelanwar/MaskTheFace to generate the masks. TFill is taking two inputs: the original image and the mask only. We modified the ```MaskTheFace/mask_the_face.py``` file to generate and save the mask. We also wrote our own script ```MaskTheFace/preproc.py``` to preprocess the data options are set ```--convert``` to convert all images to either jpg format, set ```--resize``` to resize the images, and set ```--compare_dir``` compared the input dir and masks dir and remove all the images in the input image dir wich does not have a corresponding mask, and set ```--crop``` to crop and enlarge the input images which is used for enlarging the digital masks to make sure it covers the entire medical mask.
 
 We preprocessed three different datasets:
-1. Faces Kaggle dataset: https://www.kaggle.com/datasets/varump66/face-images-13233, with 256 by 256 resolution of 8k examples (roughly) + 2k testing examples.
-2. FFHQ Kaggle dataset: https://www.kaggle.com/datasets/arnaud58/flickrfaceshq-dataset-ffhq, with 512 by 512 resolution of 10k examples (roughly).
-3. A small personalized Taylor Swift dataset containing 133 examples + 16 testing examples.
-4. A small personalized Benedict Cumberbatch dataset containing 115 examples + 14 testing examples.
+1. Faces Kaggle dataset: https://www.kaggle.com/datasets/varump66/face-images-13233, with 256 by 256 resolution of 8k examples (roughly) + 2k testing examples, and 10-20% mask ratio.
+2. FFHQ Kaggle dataset: https://www.kaggle.com/datasets/arnaud58/flickrfaceshq-dataset-ffhq, with 512 by 512 resolution of 10k examples (roughly) and 30-40% mask ratio.
+3. A small personalized Taylor Swift dataset containing 133 examples + 16 testing examples, and 20-30% mask ratio.
+4. A small personalized Benedict Cumberbatch dataset containing 115 examples + 14 testing examples, and 20-30% mask ratio.
 
 Notice that every dataset contains original images and the corresponding masks and the cuztomized datasets can be found in the Customized_Datasets folder
 
@@ -48,8 +48,8 @@ FID on the 2000 testing dataset: 6.8383
 
 #### M3_Base Model TaylorSwift ####
 We cuztomized the base model on Taylor Swift dataset (133 images). For testing we tested the Taylor Swift Model on the TS testing datasets and calculated the FID score. For a fair comparison we also tested the TS testing datasets on the M3 Model.
-M3_TS FID: 33.8927 (with 30-40% mask ratio)
-M3 FID: 68.6593 (with 30-40% mask ratio)
+M3_TS FID: 33.8927 (with 20-30% mask ratio)
+M3 FID: 68.6593 (with 20-30% mask ratio)
 
 For qualitative testings we picked 4 images of Taylor Swift wearing a mask and used the Meta SAM API (code included in ```Mask_Extraction.ipynb```) to extract the mask for regeneration. 
 
@@ -57,8 +57,8 @@ Everything is in the results/TS folder.
 
 #### M3_Base Model BenedictCumberbatch ####
 We cuztomized the base model on Benedict Cumberbatch dataset (115 images). For testing we tested the Benedict Cumberbatch Model on the BC testing datasets and calculated the FID score. For a fair comparison we also tested the BC testing datasets on the M3 Model.
-M3_BC FID: 23.2846 (with 30-40% mask ratio)
-M3 FID: 27.6326 (with 30-40% mask ratio)
+M3_BC FID: 23.2846 (with 20-30% mask ratio)
+M3 FID: 27.6326 (with 20-30% mask ratio)
 
 
 
