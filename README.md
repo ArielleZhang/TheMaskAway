@@ -1,4 +1,4 @@
-# This Project is Made by the Triple-Dots
+# TheMaskAway
 ECE324 Course Project
 
 ### Set up ###
