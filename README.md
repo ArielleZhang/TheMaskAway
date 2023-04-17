@@ -31,7 +31,7 @@ _Model 1_: ```M1_faces_from_scratch``` on the Faces Kaggle dataset, the faces da
 
 _Model 2_: ```M2_FFHQ_from_scratch``` on FFHQ with our own masks, training model from scratch. We so far ran 373500 iterations but in their paper, the TFill model ran for 2,000,000 iterations, so to get a better performance, we need to train for longer.
 
-_Model 3_: ```M3_FFHQ_pretrained``` on FFHQ with our own masks, training model on top of their pretrained ffhq model which is trained on FFHQ512 for 20,000,000 iterations. We trained the pretrained model on our own FFHQ masks dataset (10,000) for 8,000,000 iterations and to add diversity we further trained on the faces dataset (8000) for 4,000,000 iterations. *This one is the best base model we trained*
+_Model 3_: ```M3_FFHQ_pretrained``` on FFHQ with our own masks, training model on top of their pretrained ffhq model which is trained on FFHQ512 for 2,000,000 iterations. We trained the pretrained model on our own FFHQ masks dataset (10,000) for 800,000 iterations and to add diversity we further trained on the faces dataset (8000) for 400,000 iterations. *This one is the best base model we trained*
 
 _Model 3 TaylorSwift_: ```M3_FFHQ_pretrained_TS``` fine tuned ```M3_FFHQ_pretrained``` on Taylor Swift (133 images) for 60,000 iterations untill the model converges. The plotted loss curve showed overfitting close to 60,000 thus we used the model saved at checkpoint 50,000.
 
