@@ -1,4 +1,4 @@
-# Triple-Dots
+# This Project is Made by the Triple-Dots
 ECE324 Course Project
 
 ### Set up ###
