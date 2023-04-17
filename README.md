@@ -1,5 +1,4 @@
-# This Project is Made by the Triple-Dots
-ECE324 Course Project
+# TheMaskAway
 
 ### Set up ###
 We used MaskTheFace, MAT, TFill repos, we attached the link to their repo when they are later referenced, all the modified and added scripts are uploaded here in our repo to set up you need to clone their repo and replace the corresponding file with our modified file as indicated by their path.
